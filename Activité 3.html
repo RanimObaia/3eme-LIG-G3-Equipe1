@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Activité 3</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <div id="root2"></div>
+
+  <script type="text/babel">
+    const apprenant = {
+      nomApprenant: 'Foulen',
+      prenomApprenant: 'Ben Foulen'
+    };
+
+    function accueilEtudiant(apprenant) {
+      return apprenant.nomApprenant + ' ' + apprenant.prenomApprenant;
+    }
+
+
+    class AccueilApprenant extends React.Component {
+      render() {
+        return <strong>Bonne découverte de React {accueilEtudiant(this.props.apprenant)}</strong>;
+      }
+    }
+
+    ReactDOM.render(
+      <AccueilApprenant apprenant={apprenant} />,
+      document.getElementById('root')
+    );
+
+    function Bienvenue(props) {
+      return <h2>Vous êtes le/la bienvenue, {props.prenom}</h2>;
+    }
+
+    const elt = <Bienvenue prenom="Foulen" />;
+
+    ReactDOM.render(elt, document.getElementById('root2'));
+  </script>
+</body>
+</html>
